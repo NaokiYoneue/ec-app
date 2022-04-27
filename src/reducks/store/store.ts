@@ -1,27 +1,29 @@
-import { createStore as reduxCreateStore, combineReducers, Store, applyMiddleware, Reducer, compose } from 'redux'
-import { UsersReducer } from 'reducks/users/reducers'
-import { ProductsReducer } from 'reducks/products/reducers'
-import { connectRouter, routerMiddleware, RouterState } from 'connected-react-router'
-import { History } from 'history'
-import { UserState } from 'reducks/users/types'
-import thunk from 'redux-thunk'
-import { ProductsState } from 'reducks/products/types'
+import {createStore as reduxCreateStore, combineReducers,applyMiddleware,Reducer}from 'redux';
+import { connectRouter ,routerMiddleware, RouterState } from 'connected-react-router';
+import { UsersReducer } from '../users/reducers';
+import { ProductsReducer } from '../products/reducers';
+import { History } from "history";
+import thunk from "redux-thunk";
+import { UserState } from '../users/types';
+import { ProductsState } from '../products/types';
+import {configureStore } from '@reduxjs/toolkit'
 
 export type AppState = {
-  router: Reducer<RouterState>
-  products: ProductsState
-  users: UserState
+  router: Reducer<RouterState>;
+  products: ProductsState;
+  users: UserState;
 }
 
-const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-
-export default function createStore(history: History): Store {
+export const createStore = (history: History)=>{
   return reduxCreateStore(
     combineReducers({
       router: connectRouter(history),
-      products: ProductsReducer,
       users: UsersReducer,
+      products:ProductsReducer
     }),
-    composeEnhancers(applyMiddleware(routerMiddleware(history), thunk))
+    applyMiddleware(
+      routerMiddleware(history),
+      thunk
+    ),
   )
 }

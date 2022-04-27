@@ -2,7 +2,7 @@
 import React, {useCallback,useState} from 'react'
 import { useDispatch } from 'react-redux'
 //import * as React from 'react';
-import { initialState } from 'reducks/store/initialState'
+import initialState from 'reducks/store/initialState'
 import {PrimaryButton, TextInput} from '../components/Uikit'
 import {signIn} from '../reducks/users/operations'
 

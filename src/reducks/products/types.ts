@@ -1,4 +1,4 @@
-import { Image, Size } from '../products/types'
+import { Image, Size } from '../../components/Products/types'
 import firebase from 'firebase/app'
 
 export type ProductsState = {

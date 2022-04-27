@@ -1,4 +1,4 @@
-import { TextInput, SelectBox, PrimaryButton } from 'components/UIkit/index'
+import { TextInput, SelectBox, PrimaryButton } from '../components/Uikit'
 import ImageArea from 'components/Products/ImageArea'
 import React from 'react'
 import { useCallback } from 'react'

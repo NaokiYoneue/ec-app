@@ -1,4 +1,4 @@
-import {initialState} from '../store/initialState'
+import initialState from '../store/initialState'
 import { DELETE_PRODUCTS, FETCH_PRODUCTS, ProductsAction, ProductsState } from './types'
 
 export const ProductsReducer = (
